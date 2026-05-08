@@ -35,10 +35,10 @@ const footerColumns = [
   {
     title: 'Connect',
     links: [
-      { label: 'X / Twitter', href: 'https://x.com/isaac_newton252', external: true },
-      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/hanif-maulana-210b4721b/', external: true },
-      { label: 'Instagram', href: 'https://www.instagram.com/hanifmaulana2/', external: true },
-      { label: 'Facebook', href: 'https://www.facebook.com/hanif.maulana.108/', external: true },
+      { label: 'X / Twitter', href: siteConfig.links.twitter, external: true },
+      { label: 'LinkedIn', href: siteConfig.links.linkedin, external: true },
+      { label: 'Instagram', href: siteConfig.links.instagram, external: true },
+      { label: 'Facebook', href: siteConfig.links.facebook, external: true },
     ],
   },
 ] as const;
@@ -144,7 +144,7 @@ export function HomeFooter() {
               </Link>
             </p>
           </div>
-          
+
           {/* Social Share Integration */}
           <div className="mt-4 flex flex-wrap items-center justify-center gap-4 sm:mt-6 sm:justify-start">
             <span className="text-[10px] font-semibold uppercase tracking-wider text-white/30">Share:</span>

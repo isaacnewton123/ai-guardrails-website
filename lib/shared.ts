@@ -41,5 +41,9 @@ export const siteConfig = {
     issues: 'https://github.com/isaacnewton123/eslint-plugin-ai-guardrails/issues',
     changelog: 'https://github.com/isaacnewton123/eslint-plugin-ai-guardrails/blob/main/CHANGELOG.md',
     kofi: 'https://ko-fi.com/isaacnewton1',
+    linkedin: 'https://www.linkedin.com/in/hanif-maulana-210b4721b/',
+    twitter: 'https://x.com/isaac_newton252',
+    instagram: 'https://www.instagram.com/hanifmaulana2/',
+    facebook: 'https://www.facebook.com/hanif.maulana.108/',
   },
 };

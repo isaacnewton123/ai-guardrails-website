@@ -24,19 +24,6 @@ export function HomeNav() {
           />
         </Link>
 
-        {/* Table of Contents / Jump Links (Desktop) */}
-        <div className="hidden items-center gap-6 md:flex">
-          <Link href="#why-heading" className="text-sm font-medium text-white/50 transition-colors hover:text-white/90">
-            Features
-          </Link>
-          <Link href="#quickstart-heading" className="text-sm font-medium text-white/50 transition-colors hover:text-white/90">
-            Quick Start
-          </Link>
-          <Link href="#rules-heading" className="text-sm font-medium text-white/50 transition-colors hover:text-white/90">
-            Rules
-          </Link>
-        </div>
-
         <div className="flex items-center gap-1">
           <Link
             href={siteConfig.links.docs}
