@@ -104,10 +104,10 @@ export const metadata: Metadata = {
     },
   },
 
-  // ── Verification (add tokens when available) ──────────────────────────────
-  // verification: {
-  //   google: 'YOUR_GOOGLE_SEARCH_CONSOLE_TOKEN',
-  // },
+  // ── Verification ──────────────────────────────
+  verification: {
+    google: '732d76f02bbe4290',
+  },
 
   // ── Category ─────────────────────────────────────────────────────────────
   category: 'technology',
