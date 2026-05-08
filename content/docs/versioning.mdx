@@ -1,0 +1,103 @@
+---
+title: Versioning & Release
+description: Semantic versioning policy and release checklist for eslint-plugin-ai-guardrails maintainers.
+icon: Tag
+---
+
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+import { Callout } from 'fumadocs-ui/components/callout';
+
+This project uses [Semantic Versioning](https://semver.org/) (`MAJOR.MINOR.PATCH`).
+
+## Versioning Policy
+
+| Change Type | Version Bump | Examples |
+|------------|-------------|---------|
+| **PATCH** | `x.x.+1` | Bug fixes, docs-only fixes, non-breaking behavior adjustments |
+| **MINOR** | `x.+1.0` | New rules, new options, backward-compatible enhancements |
+| **MAJOR** | `+1.0.0` | Breaking changes to rule behavior, defaults, or public exports |
+
+---
+
+## Release Checklist
+
+<Steps>
+<Step>
+
+### Ensure clean working tree
+
+```bash
+git status  # should be clean
+```
+
+</Step>
+<Step>
+
+### Update `CHANGELOG.md`
+
+Move items from `[Unreleased]` to a new version section and add the release date in `YYYY-MM-DD` format.
+
+</Step>
+<Step>
+
+### Run full quality checks
+
+```bash
+npm run clean
+npm run build
+npm test
+npm pack --dry-run    # verify package contents
+```
+
+</Step>
+<Step>
+
+### Bump version
+
+```bash
+npm version patch   # for bug fixes
+npm version minor   # for new features
+npm version major   # for breaking changes
+```
+
+</Step>
+<Step>
+
+### Push tags and commits
+
+```bash
+git push --follow-tags
+```
+
+</Step>
+<Step>
+
+### Publish to npm
+
+```bash
+npm publish
+```
+
+</Step>
+<Step>
+
+### Create GitHub release
+
+Go to [Releases](https://github.com/isaacnewton123/eslint-plugin-ai-guardrails/releases), create a release from the new tag, and copy the relevant `CHANGELOG.md` section as release notes.
+
+</Step>
+</Steps>
+
+---
+
+## Pre-publish Verification
+
+Before every publish, verify the package contents:
+
+```bash
+npm pack --dry-run
+```
+
+<Callout type="info">
+  Expected output should include `dist/index.js`, `dist/rules/*.js`, `dist/cli.js`, `docs/**/*.md`, `README.md`, and `LICENSE`. It should **not** include `src/`, `tests/`, `node_modules/`, or `.stress-tests/`.
+</Callout>

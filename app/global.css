@@ -10,3 +10,42 @@ html > body[data-scroll-locked] {
   margin-right: 0px !important;
   --removed-body-scroll-bar-size: 0px !important;
 }
+
+@theme {
+  --animate-logo-ticker: logo-ticker 30s linear infinite;
+  --animate-fade-in-up: fade-in-up 0.6s ease-out both;
+  --animate-subtle-glow: subtle-glow 4s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes logo-ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes subtle-glow {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+}
+
+/* Dot grid pattern utility */
+.bg-dot-pattern {
+  background-image: radial-gradient(circle, rgba(139, 92, 246, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}

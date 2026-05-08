@@ -1,4 +1,4 @@
-import { exportSearchIndexes } from '@/lib/export-search-indexes';
+import { exportSearchIndexes } from '@/lib/export-static-indexes';
 
 export const revalidate = false;
 

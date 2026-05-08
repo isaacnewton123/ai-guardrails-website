@@ -1,0 +1,195 @@
+---
+title: Configuration Guide
+description: All configuration options for eslint-plugin-ai-guardrails — rule options, team presets, and CI setup.
+icon: Settings
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+
+## Supported File Types
+
+AI Guardrails only applies to TypeScript files:
+
+- `*.ts`, `*.tsx`, `*.mts`, `*.cts`
+
+JavaScript files are intentionally excluded — this plugin targets TypeScript-first workflows where AI tools generate the most structural debt.
+
+---
+
+## ESLint v9 — Flat Config
+
+<Tabs items={['Minimal', 'With typescript-eslint', 'CJS']}>
+  <Tab value="Minimal">
+    ```js
+    // eslint.config.mjs
+    import aiGuardrails from 'eslint-plugin-ai-guardrails';
+
+    export default [
+      aiGuardrails.flatConfigs.recommended
+    ];
+    ```
+  </Tab>
+  <Tab value="With typescript-eslint">
+    ```js
+    // eslint.config.mjs
+    import js from '@eslint/js';
+    import tseslint from 'typescript-eslint';
+    import aiGuardrails from 'eslint-plugin-ai-guardrails';
+
+    export default [
+      { ignores: ['dist', 'build', 'coverage', 'node_modules'] },
+      js.configs.recommended,
+      ...tseslint.configs.recommended,
+      aiGuardrails.flatConfigs.recommended
+    ];
+    ```
+  </Tab>
+  <Tab value="CJS">
+    ```js
+    // eslint.config.cjs
+    const aiGuardrails = require('eslint-plugin-ai-guardrails');
+
+    module.exports = [
+      aiGuardrails.flatConfigs.recommended
+    ];
+    ```
+  </Tab>
+</Tabs>
+
+---
+
+## ESLint v8 — Legacy Config
+
+<Tabs items={['Using extends', 'Manual rules']}>
+  <Tab value="Using extends">
+    ```json
+    // .eslintrc.json
+    {
+      "parser": "@typescript-eslint/parser",
+      "plugins": ["ai-guardrails"],
+      "extends": ["plugin:ai-guardrails/recommended"]
+    }
+    ```
+  </Tab>
+  <Tab value="Manual rules">
+    ```json
+    {
+      "parser": "@typescript-eslint/parser",
+      "plugins": ["ai-guardrails"],
+      "rules": {
+        "ai-guardrails/max-file-lines": "warn",
+        "ai-guardrails/max-function-lines": "warn",
+        "ai-guardrails/no-orphan-todos": "error",
+        "ai-guardrails/no-ai-obvious-comments": "warn"
+      }
+    }
+    ```
+  </Tab>
+</Tabs>
+
+---
+
+## Rule Options Reference
+
+### `max-file-lines`
+
+```json
+["warn", { "max": 300, "skipBlankLines": true, "skipComments": true }]
+```
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `max` | `number` | `300` | Maximum effective lines per file |
+| `skipBlankLines` | `boolean` | `true` | Don't count blank lines |
+| `skipComments` | `boolean` | `true` | Don't count comment lines |
+
+### `max-function-lines`
+
+```json
+["warn", { "max": 50, "skipBlankLines": true, "skipComments": true, "skipSingleLine": false }]
+```
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `max` | `number` | `50` | Maximum effective lines per function body |
+| `skipBlankLines` | `boolean` | `true` | Don't count blank lines |
+| `skipComments` | `boolean` | `true` | Don't count comment lines |
+| `skipSingleLine` | `boolean` | `false` | Ignore single-line functions |
+
+### `no-orphan-todos`
+
+```json
+["error", { "requireReference": true, "requireDate": false, "dateFormat": "YYYY-MM-DD" }]
+```
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `requireReference` | `boolean` | `true` | Require a URL or issue reference (`#123`) |
+| `requireDate` | `boolean` | `false` | Require a date in `YYYY-MM-DD` format |
+| `dateFormat` | `string` | `"YYYY-MM-DD"` | Expected date format |
+
+### `no-ai-obvious-comments`
+
+```json
+"warn"
+```
+
+No options. Uses heuristic analysis to detect comments that repeat the following line of code.
+
+---
+
+## Team Presets
+
+### Relaxed — getting started
+
+Good for teams adopting guardrails gradually without blocking existing code:
+
+```json
+{
+  "rules": {
+    "ai-guardrails/max-file-lines": ["warn", { "max": 500 }],
+    "ai-guardrails/max-function-lines": ["warn", { "max": 80 }],
+    "ai-guardrails/no-orphan-todos": "warn",
+    "ai-guardrails/no-ai-obvious-comments": "warn"
+  }
+}
+```
+
+### Strict — established teams
+
+For teams that want hard enforcement from day one:
+
+```json
+{
+  "rules": {
+    "ai-guardrails/max-file-lines": ["error", { "max": 200 }],
+    "ai-guardrails/max-function-lines": ["error", { "max": 30 }],
+    "ai-guardrails/no-orphan-todos": [
+      "error",
+      { "requireReference": true, "requireDate": true }
+    ],
+    "ai-guardrails/no-ai-obvious-comments": "error"
+  }
+}
+```
+
+---
+
+## CI: Fail Build on Warnings
+
+Use `--max-warnings 0` to treat all warnings as errors in CI:
+
+```json
+{
+  "scripts": {
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "tsc --noEmit",
+    "build": "npm run lint && npm run typecheck && <build-step>"
+  }
+}
+```
+
+<Callout type="info">
+  This guarantees any ESLint warning or TypeScript error fails the pipeline — no silent drift.
+</Callout>

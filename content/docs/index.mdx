@@ -1,13 +1,73 @@
 ---
-title: Hello World
-description: Your first document
+title: Introduction
+description: ESLint guardrails for AI-assisted codebases — stop AI-generated code from becoming long-term tech debt.
+icon: Shield
 ---
 
-Welcome to the docs! You can start writing documents in `/content/docs`.
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Cards, Card } from 'fumadocs-ui/components/card';
 
-## What is Next?
+<div className="flex justify-center my-8">
+  <img
+    src="/logo.webp"
+    alt="eslint-plugin-ai-guardrails logo"
+    width={160}
+    height={160}
+    className="rounded-2xl"
+  />
+</div>
+
+# eslint-plugin-ai-guardrails
+
+**ESLint guardrails for AI-assisted codebases.**
+
+Stop AI-generated code from becoming long-term tech debt. `eslint-plugin-ai-guardrails` enforces structure-first linting rules that catch the patterns AI coding tools get wrong most often.
+
+<Callout type="info">
+  Works with Copilot, Cursor, ChatGPT, Claude, and any AI coding assistant. Supports **ESLint v8 & v9**, **TypeScript ≥ 5**, **Node.js ≥ 18**.
+</Callout>
+
+---
+
+## Why AI Guardrails?
+
+AI coding assistants are incredibly productive — but they introduce predictable quality drift. These aren't style nitpicks; they're the exact patterns that turn a productive AI sprint into months of refactoring.
+
+| Problem | What AI Does | What Guardrails Catches |
+|---------|-------------|------------------------|
+| **God files** | Keeps appending to one file instead of splitting | `max-file-lines` warns when a file exceeds 300 lines |
+| **God functions** | Generates monolithic functions with everything inlined | `max-function-lines` warns when a function exceeds 50 lines |
+| **Orphan TODOs** | Leaves `TODO` / `FIXME` / `HACK` with no tracking | `no-orphan-todos` errors without a link or deadline |
+| **Redundant comments** | Adds `// Set x to 5` above `const x = 5` | `no-ai-obvious-comments` flags comments that repeat the code |
+
+---
+
+## Quick Install
+
+```bash
+# npm
+npm install --save-dev eslint-plugin-ai-guardrails @typescript-eslint/parser
+
+# pnpm
+pnpm add -D eslint-plugin-ai-guardrails @typescript-eslint/parser
+
+# bun
+bun add -d eslint-plugin-ai-guardrails @typescript-eslint/parser
+```
+
+Or use the one-command setup:
+
+```bash
+npx eslint-plugin-ai-guardrails init
+```
+
+---
+
+## Explore the Docs
 
 <Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.dev" />
+  <Card title="Installation & Quick Start" href="/docs/getting-started" description="Get up and running in under 2 minutes." />
+  <Card title="Configuration" href="/docs/configuration/configuration" description="All rule options and team presets." />
+  <Card title="Rules" href="/docs/rules/max-file-lines" description="Detailed reference for all 4 rules." />
+  <Card title="Integrations" href="/docs/integrations/integrations" description="Framework-specific setup guides." />
 </Cards>

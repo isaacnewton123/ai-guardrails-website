@@ -1,0 +1,23 @@
+{
+  "title": "eslint-plugin-ai-guardrails",
+  "pages": [
+    "index",
+    "getting-started",
+    "---Configuration---",
+    "configuration",
+    "---Rules---",
+    "max-file-lines",
+    "max-function-lines",
+    "no-orphan-todos",
+    "no-ai-obvious-comments",
+    "---Integrations---",
+    "integrations",
+    "---Troubleshooting---",
+    "troubleshooting",
+    "---Project---",
+    "changelog",
+    "contributing",
+    "security",
+    "versioning"
+  ]
+}

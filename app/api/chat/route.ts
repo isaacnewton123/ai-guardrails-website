@@ -76,7 +76,7 @@ export async function POST(req: Request, ctx: RouteContext<"/api/chat">) {
   const reqJson = await req.json();
 
   const result = streamText({
-    model: openrouter.chat(process.env.OPENROUTER_MODEL ?? 'anthropic/claude-3.5-sonnet'),
+    model: openrouter.chat(process.env.OPENROUTER_MODEL ?? 'google/gemini-2.0-flash-001'),
     stopWhen: stepCountIs(5),
     tools: {
       search: searchTool,
