@@ -95,14 +95,14 @@ JavaScript files are intentionally excluded — this plugin targets TypeScript-f
 ### `max-file-lines`
 
 ```json
-["warn", { "max": 300, "skipBlankLines": true, "skipComments": true }]
+["warn", { "max": 300, "skipBlankLines": true, "skipComments": false }]
 ```
 
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
 | `max` | `number` | `300` | Maximum effective lines per file |
 | `skipBlankLines` | `boolean` | `true` | Don't count blank lines |
-| `skipComments` | `boolean` | `true` | Don't count comment lines |
+| `skipComments` | `boolean` | `false` | Don't count comment lines |
 
 ### `max-function-lines`
 
@@ -135,7 +135,7 @@ JavaScript files are intentionally excluded — this plugin targets TypeScript-f
 "warn"
 ```
 
-No options. Uses heuristic analysis to detect comments that repeat the following line of code.
+No options. Strictly enforces density constraints (max 20%), horizontal limits (80 chars), and content quality to ensure professional comments.
 
 ---
 

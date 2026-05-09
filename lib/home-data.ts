@@ -28,8 +28,8 @@ export const features = [
     icon: '💬',
     rule: 'no-ai-obvious-comments',
     title: 'No Redundant Comments',
-    problem: 'AI adds `// Set x to 5` above `const x = 5`',
-    solution: 'Flags comments that just repeat the code',
+    problem: 'AI adds massive blocks of unnecessary explanations',
+    solution: 'Enforces max density (20%), length, and quality',
   },
 ] as const;
 
@@ -37,7 +37,7 @@ export const rulesTable = [
   { rule: 'max-file-lines', severity: 'warn', desc: 'Prevent files from exceeding 300 lines' },
   { rule: 'max-function-lines', severity: 'warn', desc: 'Prevent functions from exceeding 50 lines' },
   { rule: 'no-orphan-todos', severity: 'error', desc: 'Require TODO/FIXME/HACK to include a tracking reference' },
-  { rule: 'no-ai-obvious-comments', severity: 'warn', desc: 'Detect comments that just repeat the following code' },
+  { rule: 'no-ai-obvious-comments', severity: 'warn', desc: 'Enforce strict comment density, length, and quality constraints' },
 ] as const;
 
 export const compatibilityRows = [
@@ -137,7 +137,7 @@ export const softwareAppSchema = {
   applicationCategory: 'DeveloperApplication',
   applicationSubCategory: 'ESLint Plugin',
   operatingSystem: 'Any',
-  softwareVersion: '1.1.0',
+  softwareVersion: '1.2.0',
   releaseNotes: `${siteConfig.url}/docs/changelog`,
   downloadUrl: siteConfig.links.npm,
   installUrl: siteConfig.links.npm,

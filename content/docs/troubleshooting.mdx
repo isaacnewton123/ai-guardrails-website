@@ -49,6 +49,15 @@ npm install --save-dev @typescript-eslint/parser
 
 </Accordion>
 
+<Accordion title="npx eslint-plugin-ai-guardrails init completely replaced my configs">
+
+Yes! As of the latest update, the smart CLI completely overwrites specific configuration files (like `tsconfig.json`, `eslint.config.js`/`eslint.config.mjs`, and `package.json` scripts) for frameworks like **Vite** and **Next.js** to strictly match the AI-Guardrails standards.
+
+If you are using a generic setup (e.g. NestJS), it will non-destructively inject the settings.
+You will always be prompted with `Proceed? (y/n)` before any destructive overwrites happen.
+
+</Accordion>
+
 <Accordion title="Warnings are shown but build still passes">
 
 You need `--max-warnings 0` in your lint script:

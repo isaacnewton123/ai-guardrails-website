@@ -17,6 +17,13 @@ const testedLogos = [
   { name: 'Vite', src: '/logos/vitejs.svg' },
 ];
 
+const aiLogos = [
+  { name: 'Cursor', src: '/logos/cursor-ai.svg' },
+  { name: 'Windsurf', src: '/logos/windsurf-ai.svg' },
+  { name: 'Antigravity', src: '/logos/Google_Antigravity.svg' },
+  { name: 'Kiro', src: '/logos/kiro-ai.svg' },
+];
+
 export function HomeCompatibility() {
   return (
     <section className="relative border-t border-white/[0.06] px-6 py-24" aria-labelledby="compat-heading">
@@ -62,29 +69,64 @@ export function HomeCompatibility() {
             <div className="relative flex w-full flex-1 items-center overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
               <div className="flex w-max min-w-full shrink-0 animate-logo-ticker items-center gap-12 pr-12 md:gap-24 md:pr-24">
                 {testedLogos.map((logo) => (
-                  <div key={logo.name} className="flex items-center justify-center gap-3 md:gap-6">
+                  <div key={logo.name} className="flex flex-col items-center justify-center gap-2 md:gap-3">
                     <Image
                       src={logo.src}
                       alt={logo.name}
                       width={100}
                       height={100}
-                      className="h-10 md:h-20 w-auto opacity-40 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+                      className="h-10 md:h-14 w-auto opacity-40 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
                     />
-                    <span className="text-lg md:text-2xl font-medium text-white/35">{logo.name}</span>
+                    <span className="text-sm md:text-base font-medium text-white/35 whitespace-nowrap">{logo.name}</span>
                   </div>
                 ))}
               </div>
               <div className="flex w-max min-w-full shrink-0 animate-logo-ticker items-center gap-12 pr-12 md:gap-24 md:pr-24" aria-hidden="true">
                 {testedLogos.map((logo) => (
-                  <div key={logo.name + '-duplicate'} className="flex items-center justify-center gap-3 md:gap-6">
+                  <div key={logo.name + '-duplicate'} className="flex flex-col items-center justify-center gap-2 md:gap-3">
                     <Image
                       src={logo.src}
                       alt={logo.name}
                       width={100}
                       height={100}
-                      className="h-10 md:h-20 w-auto opacity-40 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+                      className="h-10 md:h-14 w-auto opacity-40 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
                     />
-                    <span className="text-lg md:text-2xl font-medium text-white/35">{logo.name}</span>
+                    <span className="text-sm md:text-base font-medium text-white/35 whitespace-nowrap">{logo.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* AI IDEs */}
+          <div className="flex flex-col items-center">
+            <h3 className="mb-8 text-center text-sm font-semibold uppercase tracking-[0.15em] text-white/40">Compatible With</h3>
+            <div className="relative flex w-full flex-1 items-center overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+              <div className="flex w-max min-w-full shrink-0 animate-logo-ticker items-center gap-12 pr-12 md:gap-24 md:pr-24">
+                {aiLogos.map((logo) => (
+                  <div key={logo.name} className="flex flex-col items-center justify-center gap-2 md:gap-3">
+                    <Image
+                      src={logo.src}
+                      alt={logo.name}
+                      width={100}
+                      height={100}
+                      className="h-10 md:h-14 w-auto opacity-40 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+                    />
+                    <span className="text-sm md:text-base font-medium text-white/35 whitespace-nowrap">{logo.name}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="flex w-max min-w-full shrink-0 animate-logo-ticker items-center gap-12 pr-12 md:gap-24 md:pr-24" aria-hidden="true">
+                {aiLogos.map((logo) => (
+                  <div key={logo.name + '-duplicate'} className="flex flex-col items-center justify-center gap-2 md:gap-3">
+                    <Image
+                      src={logo.src}
+                      alt={logo.name}
+                      width={100}
+                      height={100}
+                      className="h-10 md:h-14 w-auto opacity-40 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+                    />
+                    <span className="text-sm md:text-base font-medium text-white/35 whitespace-nowrap">{logo.name}</span>
                   </div>
                 ))}
               </div>
