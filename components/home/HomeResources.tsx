@@ -44,6 +44,14 @@ export function HomeResources() {
             </Link>
           ))}
         </div>
+
+        {/* Sponsor Card */}
+        <div className="mt-16 flex flex-col items-center justify-center overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.02] p-8 text-center transition-all duration-300 hover:border-violet-500/20 hover:bg-white/[0.04]">
+          <h3 className="mb-6 text-xl font-semibold tracking-tight text-white/90">Support Open Source</h3>
+          <div className="max-w-full overflow-x-auto rounded-xl">
+            <iframe src="https://github.com/sponsors/isaacnewton123/card" title="Sponsor isaacnewton123" height="225" width="600" style={{ border: 0, maxWidth: '100%' }} />
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -91,6 +91,7 @@ export function HomeFooter() {
                     {link.emoji} {link.label}
                   </Link>
                 ))}
+                <iframe src="https://github.com/sponsors/isaacnewton123/button" title="Sponsor isaacnewton123" height="32" width="114" style={{ border: 0, borderRadius: '6px' }} />
               </div>
             </div>
           </div>
