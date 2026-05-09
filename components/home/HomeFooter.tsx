@@ -50,7 +50,7 @@ const supportLinks = [
 
 export function HomeFooter() {
   return (
-    <footer className="relative border-t border-white/[0.06] px-6 pt-16 pb-8">
+    <footer className="relative border-t border-slate-200 px-6 pb-8 pt-16 dark:border-white/[0.06]">
       {/* Subtle top gradient */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-500/20 to-transparent" aria-hidden="true" />
 
@@ -67,17 +67,17 @@ export function HomeFooter() {
                 height={32}
                 className="rounded-md"
               />
-              <span className="font-mono text-sm font-semibold text-white/80">
+              <span className="font-mono text-sm font-semibold text-slate-800 dark:text-white/80">
                 <span className="bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">eslint-plugin-</span>ai-guardrails
               </span>
             </Link>
 
-            <p className="max-w-xs text-sm leading-relaxed text-white/35">
+            <p className="max-w-xs text-sm leading-relaxed text-slate-500 dark:text-white/35">
               Stop AI-generated code from becoming long-term tech debt. Structure-first linting for AI-assisted TypeScript codebases.
             </p>
 
             <div className="flex flex-col gap-2.5">
-              <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-white/20">Support the project</span>
+              <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-slate-400 dark:text-white/20">Support the project</span>
               <div className="flex items-center gap-2.5">
                 {supportLinks.map((link) => (
                   <Link
@@ -85,7 +85,7 @@ export function HomeFooter() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-lg border border-white/[0.08] bg-white/[0.02] px-3.5 py-2 text-xs font-medium text-white/45 transition-all duration-300 hover:border-violet-500/25 hover:bg-violet-500/10 hover:text-violet-300"
+                    className="rounded-lg border border-slate-200 bg-white px-3.5 py-2 text-xs font-medium text-slate-600 transition-all duration-300 hover:border-violet-500/25 hover:bg-violet-50 hover:text-violet-600 dark:border-white/[0.08] dark:bg-white/[0.02] dark:text-white/45 dark:hover:bg-violet-500/10 dark:hover:text-violet-300"
                     aria-label={`${link.label} (opens in new tab)`}
                   >
                     {link.emoji} {link.label}
@@ -99,7 +99,7 @@ export function HomeFooter() {
           {/* Link columns */}
           {footerColumns.map((col) => (
             <div key={col.title} className="flex flex-col gap-3">
-              <h3 className="text-[11px] font-semibold uppercase tracking-[0.15em] text-white/40">
+              <h3 className="text-[11px] font-semibold uppercase tracking-[0.15em] text-slate-400 dark:text-white/40">
                 {col.title}
               </h3>
               <ul className="flex flex-col gap-2" role="list">
@@ -110,7 +110,7 @@ export function HomeFooter() {
                       {...('external' in link && link.external
                         ? { target: '_blank', rel: 'noopener noreferrer' }
                         : {})}
-                      className="text-sm text-white/30 transition-colors hover:text-white/65"
+                      className="text-sm text-slate-500 transition-colors hover:text-slate-900 dark:text-white/30 dark:hover:text-white/65"
                       aria-label={
                         'external' in link && link.external
                           ? `${link.label} (opens in new tab)`
@@ -127,18 +127,18 @@ export function HomeFooter() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-14 border-t border-white/[0.04] pt-6">
+        <div className="mt-14 border-t border-slate-200 pt-6 dark:border-white/[0.04]">
           <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
-            <p className="text-xs text-white/20">
+            <p className="text-xs text-slate-400 dark:text-white/20">
               MIT License · © {new Date().getFullYear()} eslint-plugin-ai-guardrails
             </p>
-            <p className="text-xs text-white/20">
+            <p className="text-xs text-slate-400 dark:text-white/20">
               Built by{' '}
               <Link
                 href="https://github.com/isaacnewton123"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/35 transition-colors hover:text-white/60"
+                className="text-slate-500 transition-colors hover:text-slate-800 dark:text-white/35 dark:hover:text-white/60"
                 aria-label="Hanif Maulana on GitHub (opens in new tab)"
               >
                 Hanif Maulana
@@ -148,12 +148,12 @@ export function HomeFooter() {
 
           {/* Social Share Integration */}
           <div className="mt-4 flex flex-wrap items-center justify-center gap-4 sm:mt-6 sm:justify-start">
-            <span className="text-[10px] font-semibold uppercase tracking-wider text-white/30">Share:</span>
+            <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400 dark:text-white/30">Share:</span>
             <a
               href={`https://x.com/intent/tweet?text=Check out eslint-plugin-ai-guardrails!&url=${siteConfig.url}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-white/40 transition-colors hover:text-violet-400"
+              className="text-xs text-slate-500 transition-colors hover:text-violet-600 dark:text-white/40 dark:hover:text-violet-400"
               aria-label="Share on X (Twitter)"
             >
               X / Twitter
@@ -162,7 +162,7 @@ export function HomeFooter() {
               href={`https://www.linkedin.com/sharing/share-offsite/?url=${siteConfig.url}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-white/40 transition-colors hover:text-violet-400"
+              className="text-xs text-slate-500 transition-colors hover:text-violet-600 dark:text-white/40 dark:hover:text-violet-400"
               aria-label="Share on LinkedIn"
             >
               LinkedIn
@@ -171,7 +171,7 @@ export function HomeFooter() {
               href={`https://www.facebook.com/sharer/sharer.php?u=${siteConfig.url}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-white/40 transition-colors hover:text-violet-400"
+              className="text-xs text-slate-500 transition-colors hover:text-violet-600 dark:text-white/40 dark:hover:text-violet-400"
               aria-label="Share on Facebook"
             >
               Facebook

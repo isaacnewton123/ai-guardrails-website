@@ -65,11 +65,11 @@ export function HomeHero() {
         ai-guardrails
       </h1>
 
-      <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/60 sm:text-lg">
+      <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg dark:text-white/60">
         {siteConfig.description}
       </p>
 
-      <p className="mx-auto mt-2 max-w-xl text-sm text-white/35">
+      <p className="mx-auto mt-2 max-w-xl text-sm text-slate-500 dark:text-white/35">
         Works with Copilot, Cursor, ChatGPT, Claude, and any AI coding assistant.
         Supports ESLint v8 &amp; v9, TypeScript ≥ 5.
       </p>
@@ -86,7 +86,7 @@ export function HomeHero() {
           href={siteConfig.links.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-xl border border-white/[0.12] bg-white/[0.04] px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/[0.08]"
+          className="rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 backdrop-blur-sm transition-all hover:border-slate-300 hover:bg-slate-50 dark:border-white/[0.12] dark:bg-white/[0.04] dark:text-white dark:hover:border-white/20 dark:hover:bg-white/[0.08]"
           aria-label="View source on GitHub (opens in new tab)"
         >
           View on GitHub
@@ -95,7 +95,7 @@ export function HomeHero() {
           href={siteConfig.links.npm}
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-xl border border-white/[0.12] bg-white/[0.04] px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/[0.08]"
+          className="rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 backdrop-blur-sm transition-all hover:border-slate-300 hover:bg-slate-50 dark:border-white/[0.12] dark:bg-white/[0.04] dark:text-white dark:hover:border-white/20 dark:hover:bg-white/[0.08]"
           aria-label="View on npm (opens in new tab)"
         >
           View on npm
@@ -104,12 +104,12 @@ export function HomeHero() {
 
       {/* Quick install with copy button */}
       <div className="mx-auto mt-8 w-full max-w-140">
-        <p className="mb-2 text-xs uppercase tracking-[0.2em] text-white/25">Quick install</p>
-        <div className="group relative flex items-center justify-between rounded-xl border border-white/[0.08] bg-white/[0.03] px-5 py-3 backdrop-blur-sm transition-colors hover:border-white/[0.12] hover:bg-white/[0.05]">
-          <code className="font-mono text-sm text-white/70">{installCmd}</code>
+        <p className="mb-2 text-xs uppercase tracking-[0.2em] text-slate-400 dark:text-white/25">Quick install</p>
+        <div className="group relative flex items-center justify-between rounded-xl border border-slate-200 bg-white px-5 py-3 backdrop-blur-sm transition-colors hover:border-slate-300 hover:bg-slate-50 dark:border-white/[0.08] dark:bg-white/[0.03] dark:hover:border-white/[0.12] dark:hover:bg-white/[0.05]">
+          <code className="font-mono text-sm text-slate-700 dark:text-white/70">{installCmd}</code>
           <button
             onClick={handleCopy}
-            className="ml-3 shrink-0 rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-white/50 transition-all hover:border-white/[0.15] hover:bg-white/[0.08] hover:text-white/80"
+            className="ml-3 shrink-0 rounded-lg border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-500 transition-all hover:border-slate-300 hover:bg-slate-100 hover:text-slate-700 dark:border-white/[0.08] dark:bg-white/[0.04] dark:text-white/50 dark:hover:border-white/[0.15] dark:hover:bg-white/[0.08] dark:hover:text-white/80"
             aria-label="Copy install command"
           >
             {copied ? (

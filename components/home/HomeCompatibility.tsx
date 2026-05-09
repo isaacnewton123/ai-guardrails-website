@@ -26,7 +26,7 @@ const aiLogos = [
 
 export function HomeCompatibility() {
   return (
-    <section className="relative border-t border-white/[0.06] px-6 py-24" aria-labelledby="compat-heading">
+    <section className="relative border-t border-slate-200 px-6 py-24 dark:border-white/[0.06]" aria-labelledby="compat-heading">
       <div className="mx-auto max-w-5xl">
         <div className="mb-14 text-center">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-violet-400/80">
@@ -43,10 +43,10 @@ export function HomeCompatibility() {
         <div className="flex flex-col gap-16 h-full">
           {/* Requirements */}
           <div className="flex flex-col items-center">
-            <h3 className="mb-8 text-center text-sm font-semibold uppercase tracking-[0.15em] text-white/40">Requirements</h3>
+            <h3 className="mb-8 text-center text-sm font-semibold uppercase tracking-[0.15em] text-slate-400 dark:text-white/40">Requirements</h3>
             <div className="grid w-full grid-cols-2 gap-4 md:grid-cols-4">
               {requirements.map((req) => (
-                <div key={req.label} className="group flex flex-col items-center justify-center gap-4 rounded-xl border border-white/[0.08] bg-white/[0.02] p-6 text-center transition-all duration-300 hover:border-violet-500/20 hover:bg-white/[0.05]">
+                <div key={req.label} className="group flex flex-col items-center justify-center gap-4 rounded-xl border border-slate-200 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:border-violet-500/20 hover:bg-slate-50 dark:border-white/[0.08] dark:bg-white/[0.02] dark:shadow-none dark:hover:bg-white/[0.05]">
                   <Image
                     src={req.src}
                     alt={req.label}
@@ -55,8 +55,8 @@ export function HomeCompatibility() {
                     className="h-12 w-auto drop-shadow-md transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="space-y-1">
-                    <dt className="text-sm font-medium text-white/85">{req.label}</dt>
-                    <dd className="font-mono text-xs text-white/40">{req.value}</dd>
+                    <dt className="text-sm font-medium text-slate-800 dark:text-white/85">{req.label}</dt>
+                    <dd className="font-mono text-xs text-slate-500 dark:text-white/40">{req.value}</dd>
                   </div>
                 </div>
               ))}
@@ -65,7 +65,7 @@ export function HomeCompatibility() {
 
           {/* Tested With */}
           <div className="flex flex-col items-center">
-            <h3 className="mb-8 text-center text-sm font-semibold uppercase tracking-[0.15em] text-white/40">Tested With</h3>
+            <h3 className="mb-8 text-center text-sm font-semibold uppercase tracking-[0.15em] text-slate-400 dark:text-white/40">Tested With</h3>
             <div className="relative flex w-full flex-1 items-center overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
               <div className="flex w-max min-w-full shrink-0 animate-logo-ticker items-center gap-12 pr-12 md:gap-24 md:pr-24">
                 {testedLogos.map((logo) => (
@@ -77,7 +77,7 @@ export function HomeCompatibility() {
                       height={100}
                       className="h-10 md:h-14 w-auto opacity-40 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
                     />
-                    <span className="text-sm md:text-base font-medium text-white/35 whitespace-nowrap">{logo.name}</span>
+                    <span className="whitespace-nowrap text-sm font-medium text-slate-500 md:text-base dark:text-white/35">{logo.name}</span>
                   </div>
                 ))}
               </div>
@@ -91,7 +91,7 @@ export function HomeCompatibility() {
                       height={100}
                       className="h-10 md:h-14 w-auto opacity-40 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
                     />
-                    <span className="text-sm md:text-base font-medium text-white/35 whitespace-nowrap">{logo.name}</span>
+                    <span className="whitespace-nowrap text-sm font-medium text-slate-500 md:text-base dark:text-white/35">{logo.name}</span>
                   </div>
                 ))}
               </div>
@@ -100,9 +100,9 @@ export function HomeCompatibility() {
 
           {/* AI IDEs */}
           <div className="flex flex-col items-center">
-            <h3 className="mb-8 text-center text-sm font-semibold uppercase tracking-[0.15em] text-white/40">Compatible With</h3>
+            <h3 className="mb-8 text-center text-sm font-semibold uppercase tracking-[0.15em] text-slate-400 dark:text-white/40">Compatible With</h3>
             <div className="relative flex w-full flex-1 items-center overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-              <div className="flex w-max min-w-full shrink-0 animate-logo-ticker items-center gap-12 pr-12 md:gap-24 md:pr-24">
+              <div className="flex w-max min-w-full shrink-0 animate-logo-ticker-reverse items-center gap-12 pr-12 md:gap-24 md:pr-24">
                 {aiLogos.map((logo) => (
                   <div key={logo.name} className="flex flex-col items-center justify-center gap-2 md:gap-3">
                     <Image
@@ -112,11 +112,11 @@ export function HomeCompatibility() {
                       height={100}
                       className="h-10 md:h-14 w-auto opacity-40 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
                     />
-                    <span className="text-sm md:text-base font-medium text-white/35 whitespace-nowrap">{logo.name}</span>
+                    <span className="whitespace-nowrap text-sm font-medium text-slate-500 md:text-base dark:text-white/35">{logo.name}</span>
                   </div>
                 ))}
               </div>
-              <div className="flex w-max min-w-full shrink-0 animate-logo-ticker items-center gap-12 pr-12 md:gap-24 md:pr-24" aria-hidden="true">
+              <div className="flex w-max min-w-full shrink-0 animate-logo-ticker-reverse items-center gap-12 pr-12 md:gap-24 md:pr-24" aria-hidden="true">
                 {aiLogos.map((logo) => (
                   <div key={logo.name + '-duplicate'} className="flex flex-col items-center justify-center gap-2 md:gap-3">
                     <Image
@@ -126,7 +126,7 @@ export function HomeCompatibility() {
                       height={100}
                       className="h-10 md:h-14 w-auto opacity-40 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
                     />
-                    <span className="text-sm md:text-base font-medium text-white/35 whitespace-nowrap">{logo.name}</span>
+                    <span className="whitespace-nowrap text-sm font-medium text-slate-500 md:text-base dark:text-white/35">{logo.name}</span>
                   </div>
                 ))}
               </div>

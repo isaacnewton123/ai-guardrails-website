@@ -61,7 +61,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
       />
 
-      <div className="min-h-screen bg-[#0a0a0f] text-white">
+      <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-[#0a0a0f] dark:text-white">
         <HomeNav />
         <main>
           <HomeHero />
