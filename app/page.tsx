@@ -14,6 +14,7 @@ import { HomeQuickStart } from '@/components/home/HomeQuickStart';
 import { HomeRulesTable } from '@/components/home/HomeRulesTable';
 import { HomeCompatibility } from '@/components/home/HomeCompatibility';
 import { HomeResources } from '@/components/home/HomeResources';
+import { HomeContributors } from '@/components/home/HomeContributors';
 import { HomeFaq } from '@/components/home/HomeFaq';
 import { HomeFooter } from '@/components/home/HomeFooter';
 
@@ -70,6 +71,7 @@ export default function HomePage() {
           <HomeRulesTable />
           <HomeCompatibility />
           <HomeResources />
+          <HomeContributors />
         </main>
         <HomeFaq />
         <HomeFooter />
