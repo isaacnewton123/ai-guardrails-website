@@ -3,7 +3,6 @@ import { Analytics } from '@vercel/analytics/react';
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import './global.css';
 import { Inter } from 'next/font/google';
-import SearchDialog from '@/components/search';
 import { siteConfig } from '@/lib/shared';
 
 const inter = Inter({
@@ -191,7 +190,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="dns-prefetch" href="https://www.npmjs.com" />
       </head>
       <body className="flex flex-col min-h-screen font-sans antialiased">
-        <RootProvider search={{ SearchDialog }}>{children}</RootProvider>
+        <RootProvider>{children}</RootProvider>
         <Analytics />
       </body>
     </html>
